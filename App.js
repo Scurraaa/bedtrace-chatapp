@@ -11,7 +11,6 @@ export default function App() {
   const [loading, setLoading] = useState(false);
 
 
-
   const _hospitals = async () => {
     setLoading(true);
     const response = await fetch(
@@ -80,7 +79,7 @@ Location: ${result[i].gmaps_link}`,
         createdAt: new Date(),
         quickReplies: {
           type: 'radio', // or 'checkbox',
-          keepIt: true,
+          keepIt: false,
           values: [
             {
               title: 'Check for nearby Hospitals',

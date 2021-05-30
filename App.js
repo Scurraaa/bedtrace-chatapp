@@ -40,7 +40,6 @@ export default function App() {
         }
       ]))
       for(var i = 0; i<result.length; i++) {
-        console.log(result[i].name);
         setMessages(previousMessages => GiftedChat.append(previousMessages, [
           {
             _id: Math.floor(Math.random() * 10000000),

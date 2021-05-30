@@ -1,0 +1,12 @@
+{
+  "name": "bedtrace-chatbot",
+  "displayName": "bedtrace-chatbot",
+  "expo": {
+    "name": "bedtrace-chatbot",
+    "slug": "bedtrace-chatbot",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

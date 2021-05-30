@@ -1,12 +1,25 @@
 {
-  "name": "bedtrace-chatbot",
-  "displayName": "bedtrace-chatbot",
+  "name": "Bed Trace",
+  "displayName": "Bed Trace",
   "expo": {
-    "name": "bedtrace-chatbot",
+    "name": "Bed Trace",
     "slug": "bedtrace-chatbot",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.devX.bedtrace",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#FFF"
+      }
+    }
   }
 }

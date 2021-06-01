@@ -23,7 +23,7 @@ export default function App() {
   } 
 
 
-  const _findNearby = async (location, kilometer = 10) => {
+  const _findNearby = async (location, kilometer = 3.5) => {
     const response = await fetch(
       `${apiUrl}/api/v1/chatbot/find_nearby/?location=${location}&kilometer=${kilometer}`, {
         method: 'GET',
@@ -104,6 +104,26 @@ Location: ${result[i].gmaps_link}`,
     _hospitals();
     setMessages([
       {
+        _id: Math.floor(Math.random() * 1000000),
+        text: 
+`
+Disclaimer:
+This Chatapp Only supports Barangay that is within Valenzuela City,
+anywhere outside Valenzuela City will result into no nearby hospitals.
+Note: (User will only input barangay in valenzuela e.g. Malanday)
+`,
+        createdAt: new Date(),
+        
+        user: {
+          _id: 2,
+          name: 'Bed Trace',
+          avatar: require('./assets/logo.png')
+        },
+
+      },
+    ])
+    setMessages(previousMessages => GiftedChat.append(previousMessages, [
+      {
         _id: 1,
         text: 'What is your current location?',
         createdAt: new Date(),
@@ -114,11 +134,11 @@ Location: ${result[i].gmaps_link}`,
           avatar: require('./assets/logo.png')
         },
       },    
-    ])
+    ]))
   }, [])
 
   const onSend = useCallback((messages = []) => {
-    const location = messages[0].text.replace(',', '');
+    const location = messages[0].text + " Valenzuela City Philippines"
     setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
     setMessages(previousMessages => GiftedChat.append(previousMessages, [
       {
@@ -137,6 +157,26 @@ Location: ${result[i].gmaps_link}`,
 
   const onQuickReply = replies => {
     if(replies[0].value == 'nearby') {
+      setMessages(previousMessages => GiftedChat.append(previousMessages, [
+        {
+          _id: Math.floor(Math.random() * 1000000),
+          text: 
+  `
+  Disclaimer:
+  This Chatapp Only supports Barangay that is within Valenzuela City,
+  anywhere outside Valenzuela City will result into no nearby hospitals.
+  Note: (User will only input barangay in valenzuela e.g. Malanday)
+  `,
+          createdAt: new Date(),
+          
+          user: {
+            _id: 2,
+            name: 'Bed Trace',
+            avatar: require('./assets/logo.png')
+          },
+  
+        },
+      ]))
       setMessages(previousMessages => GiftedChat.append(previousMessages, 
         [
           {
